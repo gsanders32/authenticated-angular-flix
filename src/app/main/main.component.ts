@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-main',
@@ -7,12 +8,18 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  constructor(private movieService: MovieService){}
+
+  user: string;
+
+  constructor(private movieService: MovieService, private authenticationService: AuthenticationService) {}
+
   ngOnInit(): void {
     this.myMovieList = this.movieService.getMovieList();
     this.searchResults = this.movieService.getSearchResults();
     this.movieService.loadMovieList();
+    this.user = this.authenticationService.getUserName();
   }
+
   searchResults = [];
   myMovieList =  [];
   title = 'Angular Flix';

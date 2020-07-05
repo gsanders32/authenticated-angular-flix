@@ -1,0 +1,19 @@
+<div class="container offset-4 col-4">
+    <div class="form-group">
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Username or Email</label>
+        <input type="text" class="form-control" placeholder="Username or Email" [(ngModel)]="username">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+        <br>
+    </div>
+    <button type="submit" class="btn btn-primary mr-2" (click)="signup()">Sign up</button>
+    <button type="submit" class="btn btn-success" (click)="login()">Sign in</button>
+    <a [routerLink]='["/signup"]'></a>
+</div>
